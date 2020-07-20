@@ -1,0 +1,98 @@
+<div class="modal fade" id="modalBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ !this.dataApi.selectedBook.id ? 'Nuevo Registro' : 'Modificar Registro'}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="formBook" #formBook="ngForm" (ngSubmit)="onSaveBook(formBook)">
+          <input type="hidden" name="id"[(ngModel)]="this.dataApi.selectedBook.id">
+          <input type="hidden" name="userUid" [value]="userUid">
+          <div class="form-group">
+            <label for="nombre_Mascota" class="col-form-label">Nombre Mascota:</label>
+            <input type="text" class="form-control" name="nombre_Mascota"[(ngModel)] = "this.dataApi.selectedBook.nombre_Mascota">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="Raza">Raza</label>
+              <select type="text" class="form-control" name="raza" [(ngModel)] = "this.dataApi.selectedBook.raza">
+                <option value="seleccion">--Perros--</option>
+                <option value="perro">Golden retriever</option>
+                <option value="gato">Pastor aleman</option>
+                <option value="seleccion">--Gatos--</option>
+                <option value="conejo">Burmes</option>
+                <option value="seleccion">Burnilla</option>
+                <option value="seleccion">--Conejos--</option>
+                <option value="seleccion">Cabeza de león</option>
+                <option value="seleccion">Mini lop</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="mascota">Mascota</label>
+              <select class="form-control" name="mascota" [(ngModel)] = "this.dataApi.selectedBook.mascota">
+                <option value="seleccion">--Seleccione--</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+                <option value="conejo">Conejo</option>
+              </select>
+            </div>
+            <div class="form row">
+              <div class="form-group col-md-7">
+                <label for="edad_Mascota">Edad Mascota</label>
+                <input type="text" class="form-control" name="edad_Mascota" [(ngModel)] = "this.dataApi.selectedBook.edad_Mascota">
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nombre_Responsable">Nombre Responsable</label>
+              <input type="text" class="form-control" name="nombre_Responsable" [(ngModel)] = "this.dataApi.selectedBook.nombre_Responsable">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="vacunas">Vacunas</label>
+              <select class="form-control" name="vacunas" [(ngModel)] = "this.dataApi.selectedBook.vacunas">
+              <option value="rabia">Rabia</option>
+              <option value="moquillo">Moquillo</option>
+              <option value="Pasteurelosis">Pasteurelosis</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="imagen">Fotografia</label>
+              <select class="form-control" name="imagen" [(ngModel)] = "this.dataApi.selectedBook.imagen">
+                <option value="seleccion">--Perros--</option>
+                <option value="https://cuantotiempovive.com/wp-content/uploads/2017/07/cuanto-tiempo-vive-un-golden-retriever.jpg">Golden retriever</option>
+                <option value="https://www.petdarling.com/articulos/wp-content/uploads/2014/08/pastor-alem%C3%A1n.jpg">Pastor aleman</option>
+                <option value="seleccion">--Gatos--</option>
+                <option value="https://t2.ea.ltmcdn.com/es/razas/7/9/1/img_197_gato-burmes_0_300_square.jpg">Burmes</option>
+                <option value="https://t1.ea.ltmcdn.com/es/razas/8/0/2/img_208_gato-burmilla_0_300_square.jpg">Burnilla</option>
+                <option value="seleccion">--Conejos--</option>
+                <option value="https://mundomascota.review/wp-content/uploads/2018/12/conejo-2.jpg">Cabeza de león</option>
+                <option value="https://www.conejos.wiki/Imagenes/orejas-del-conejo-mini-lop.jpg">Mini lop</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="otro_Tratamiento">Tratamiento</label>
+              <select class="form-control" name="otro_Tratamiento" [(ngModel)] = "this.dataApi.selectedBook.otro_Tratamiento">
+              <option value="Ninguno">Ninguno</option>
+              <option value="esterilizcion">Esterilización</option>
+              <option value="desparasitacion">Desparasitación</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="indicaciones" class="col-form-label">Indicaciones:</label>
+            <textarea class="form-control" name="indicaciones" [(ngModel)] = "this.dataApi.selectedBook.indicaciones"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>

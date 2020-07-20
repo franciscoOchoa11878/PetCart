@@ -1,0 +1,49 @@
+<section id="books" class="mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let book of books">
+        <div class="card_book">
+          <div class="card">
+            <div class="card-body text-center border border-dark">
+              <p>
+                <img class="img-fluid" src="{{book.imagen}}" alt="{{book.mascota}}">
+              </p>
+              <h4 routerLink="/book/{{book.id}}" class="text-white bg-dark">{{book.nombre_Mascota}}</h4>
+              <div>
+                <p class="p-3 mb-2 bg-primary text-white">
+                Raza: {{book.raza }}
+                </p>
+              </div>
+              <div>
+                <p class="p-3 mb-2 bg-success text-white">
+                Indicaciones: {{book.indicaciones }}
+                </p>
+              </div>
+              <div>
+                <p class="p-3 mb-2 bg-info text-white">
+                Vacunas: {{book.vacunas }}
+                </p>
+              </div>
+              <div>
+                <p class="p-3 mb-2 bg-secondary text-white">
+                Otro tratamiento: {{book.otro_Tratamiento }}
+                </p>
+              </div>
+              <div class="container-precio-idioma">
+                <p class="p-3 mb-2 bg-warning text-dark">
+                  {{book.edad_Mascota}} años
+                </p>
+                <p class="badge badge-info">
+                  Responsable: {{book.nombre_Responsable}}
+                </p>
+              </div>
+             
+              <!--<a routerLink="/admin/list-books" class="btn btn-block btn-primary"  target="_blank">Ir a lista de Mascotas</a>-->
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
